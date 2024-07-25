@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import Job, { jobLoader } from "./pages/Job";
 import AddJob from "./pages/AddJob";
 import EditJob from "./pages/EditJob";
-import { addJob, deleteJob, updateJob } from "./services/fetch";
+import { addJob, deleteJob, getJob, updateJob } from "./services/fetch";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/add-job" element={<AddJob addJobSubmit={addJob} />} />
         <Route
           path="/edit-job/:id"
-          element={<EditJob updateJobSubmit={updateJob} />}
+          element={<EditJob getJobById={getJob} updateJobSubmit={updateJob} />}
           loader={jobLoader}
         />
         <Route
